@@ -1,0 +1,90 @@
+﻿@page "/Gestion-de-vuelos"
+@inject NavigationManager Navigation
+@inject HttpClient Http
+@inject DialogService DialogService
+@using System.Text
+
+<RadzenDialog />
+<RadzenNotification />
+
+<div class="content px-4">
+    <div class="row text-center">
+        <div class="col-sm">
+            <h2 style="color:blue" class="tilt-page-form">
+                GESTIONAR SALIDA DE VUELOS <span title="Ver detalle" class="oi oi-location" aria-hidden="true"></span>
+            </h2>
+        </div>
+    </div>
+</div>
+
+@if (listVueloSalidaModel == null)
+{
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <RadzenPanel AllowCollapse="true" class="complement-filter-form">
+        <HeaderTemplate>
+            <div class="ml-2">Resultado</div>
+        </HeaderTemplate>
+        <ChildContent>
+            <RadzenDataGrid @ref="@grid" AllowFiltering="true" AllowColumnResize="true" FilterMode="FilterMode.Simple" PageSize="10" class="grid-contain-form"
+                            AllowPaging="true" AllowSorting="true" ColumnWidth="200px" Data="@listVueloSalidaModel" TItem="VueloSalidaModel" LogicalFilterOperator="LogicalFilterOperator.Or">
+                <Columns>
+                    <RadzenDataGridColumn TItem="VueloSalidaModel" Property="Origen" Title="Origen" />
+                    <RadzenDataGridColumn TItem="VueloSalidaModel" Property="Destino" Title="Destino" />
+                    <RadzenDataGridColumn TItem="VueloSalidaModel" Property="Municipio" Title="Municipio" />
+                    <RadzenDataGridColumn TItem="VueloSalidaModel" Property="Fecha" Title="Fecha" />
+                    <RadzenDataGridColumn TItem="VueloSalidaModel" Property="Salida" Title="Salida" />
+                    <RadzenDataGridColumn TItem="VueloSalidaModel" Property="IdEstado" Title="Estado">
+                        <Template Context="vueloSalida">
+                            @if (vueloSalida.IdEstado == 1)
+                            {
+                                <p style="color:green">Activo <span title="Activo" class="oi oi-thumb-up" aria-hidden="true" /></p>
+                            }
+                            else
+                            {
+                                <p style="color:red">Cancelado <span title="Cancelado" class="oi oi-thumb-down" aria-hidden="true" /></p>
+                            }
+
+                        </Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn Width="150px" TItem="VueloSalidaModel" Property="VueloSalida" Sortable="false" Filterable="false" Title="Acciones">
+                        <Template Context="vueloSalida">
+                            <NavLink class="nav-link grid-accciones d-flex">
+                                <button style="color:yellow" class="btn-plus-search btn-sm" @onclick="(()=>Eventos(vueloSalida.IdSalida, tipoRequest[0]))">
+                                    <span title="Editar" class="oi oi-pencil" aria-hidden="true"></span>
+                                </button>
+                                <button style="color:red" class="btn-plus-search btn-sm" @onclick="(()=>Eventos(vueloSalida.IdSalida, tipoRequest[1]))">
+                                    <span title="Eliminar" class="oi oi-pencil" aria-hidden="true"></span>
+                                </button>
+
+                            </NavLink>
+                        </Template>
+                    </RadzenDataGridColumn>
+                </Columns>
+            </RadzenDataGrid>
+        </ChildContent>
+    </RadzenPanel>
+}
+
+@code {
+    List<VueloSalidaModel> listVueloSalidaModel = null;
+    RadzenDataGrid<VueloSalidaModel> grid = new();
+    string[] tipoRequest = new string[2] { "post", "put" };
+    protected override async Task OnInitializedAsync()
+    {
+        if (listVueloSalidaModel == null)
+            listVueloSalidaModel = await Http.GetFromJsonAsync<List<VueloSalidaModel>>("https://localhost:44380/VueloSalida");
+    }
+
+    public async Task Eventos(int id, string action)
+    {
+        await DialogService.OpenAsync<Pages.VueloSalidaCrud>($"O",
+               new Dictionary<string, object>() { { "Id", id } ,{ "Action", action } },
+   new DialogOptions() { Width = "70%", ShowTitle = false, Resizable = true });
+        listVueloSalidaModel = await Http.GetFromJsonAsync<List<VueloSalidaModel>>("https://localhost:44380/VueloSalida");
+    }
+
+
+}

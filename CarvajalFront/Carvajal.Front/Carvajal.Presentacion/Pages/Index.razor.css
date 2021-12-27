@@ -1,0 +1,45 @@
+﻿.btn-lent-search {
+    color: #11D719;
+    background-color: transparent;
+}
+
+.button-complement {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: 0.875px;
+    width: 6.25rem;
+    height: 2.5rem;
+}
+
+.button-complement-xl {
+    Width: 11.438rem;
+    height: 3rem;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2rem;
+}
+
+.button-primary-color {
+    background: #3366CA;
+    border-color: #3366CA;
+}
+
+.button-primary {
+    background: #3366CA;
+    border-color: #3366CA;
+}
+
+.tilt-page-form {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    color: #1E63B1;
+}
+
+.complement-filter-form {
+    margin-top: 1em;
+}

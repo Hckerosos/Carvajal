@@ -1,0 +1,884 @@
+﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    overflow-y: hidden;
+    min-height: 100%;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tendenciashoy.com%2Fviajeros%2Faerolineas%2Fcinco-aerolineas-clase-business-eclipsa-a-la-primera_20001401_102.html&psig=AOvVaw3fZ3ppeeqhb3r5RqZG73YF&ust=1640725619273000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCLDg9cjxhPUCFQAAAAAdAAAAABAE");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+a, .btn-link {
+    color: cadetblue;
+}
+
+.content {
+    background-color:white;
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+select {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.grid-details {
+    display: grid;
+    grid-template: auto auto auto auto;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+    background-color: transparent;
+}
+
+.grid-accciones {
+    display: grid;
+    grid-template: auto auto auto auto;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    text-align: left;
+    background-color: transparent;
+    padding: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template: auto auto auto auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    text-align: left;
+    background-color: white;
+    padding: 10px;
+}
+
+.grid-dos {
+    display: grid;
+    grid-template: auto auto auto auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    text-align: left;
+    background-color: white;
+    padding: 10px;
+}
+
+.grid-tres {
+    display: grid;
+    grid-template: auto auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    text-align: left;
+    background-color: white;
+    padding: 10px;
+}
+
+
+        .grid-container > div {
+            background-color: white;
+            border-bottom: 2px solid gray;
+            padding:10px;
+            text-align: left;
+            font-size: 12px;
+        }
+
+.grid-dos > div {
+    background-color: white;
+    border-bottom: 2px solid gray;
+    padding: 10px;
+    text-align: left;
+    font-size: 12px;
+}
+
+.grid-tres > div {
+    background-color: white;
+    border-bottom: 2px solid gray;
+    padding: 10px;
+    text-align: left;
+    font-size: 12px;
+}
+
+.grid-details > div {
+    background-color: white;
+    padding: 7px;
+    text-align: left;
+    font-size: 12px;
+}
+
+
+.left {
+    float: left;
+    background: blue
+}
+
+.right {
+    float: right;
+}
+
+.center {
+    margin: 0 auto;
+    display: inline-block
+}
+
+.dropdown-menu {
+    display: none
+}
+
+
+    .navbar-nav li:hover > .dropdown-menu {
+        display: block;
+        text-decoration: underline;
+    }
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.inverted {
+    background-color: lightgray;
+    text-decoration-color: darkblue;
+    color: darkblue;
+    width: 100%;
+}
+
+
+hover:link {
+    color: white;
+    text-decoration: none;
+}
+
+hover:visited {
+    color: gray;
+    text-decoration: none;
+    background-color:red;
+}
+
+hover:active {
+    text-decoration: none
+}
+
+hover {
+    color: darkblue;
+    background-color: yellow;
+    text-decoration: underline;
+}
+.navbar-nav > li:hover, .navbar .navbar-nav > li > a:focus {
+    text-decoration-color: black;
+    color: black;
+    background-color: dimgray;
+}
+.navbar-default .navbar-text {
+    color: black;
+}
+
+.nav-link {
+    color: black;
+}
+
+.navbar-nav:focus {
+    color: black;
+    background-color: blue;
+}
+.navbar-dark .navbar-nav > li:hover, .navbar .navbar-nav > li > a:focus {
+    background-color: yellow;
+    color: black;
+}
+.div.dataTables_length label {
+    float: left;
+    text-align: left;
+}
+
+.div.dataTables_length select {
+    width: 75px;
+}
+
+.div.dataTables_filter label {
+    float: right;
+}
+
+.div.dataTables_info {
+    padding-top: 8px;
+}
+
+.div.dataTables_paginate {
+    float: right;
+    margin: 0;
+}
+
+.table.table {
+    clear: both;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+}
+
+    table.table thead .sorting,
+    table.table thead .sorting_asc,
+    table.table thead .sorting_desc,
+    table.table thead .sorting_asc_disabled,
+    table.table thead .sorting_desc_disabled {
+        cursor: pointer;
+        *cursor: hand;
+    }
+
+    .table.table thead .sorting {
+        background: url('images/sort_both.png') no-repeat center right;
+    }
+
+    .table.table thead .sorting_asc {
+        background: url('images/sort_asc.png') no-repeat center right;
+    }
+
+    .table.table thead .sorting_desc {
+        background: url('images/sort_desc.png') no-repeat center right;
+    }
+
+    .table.table thead .sorting_asc_disabled {
+        background: url('images/sort_asc_disabled.png') no-repeat center right;
+    }
+
+   .table.table thead .sorting_desc_disabled {
+        background: url('images/sort_desc_disabled.png') no-repeat center right;
+    }
+
+.table.dataTable th:active {
+    outline: none;
+}
+
+/* Scrolling */
+.div.dataTables_scrollHead table {
+    margin-bottom: 0 !important;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+    .div.dataTables_scrollHead table thead tr:last-child th:first-child,
+    .div.dataTables_scrollHead table thead tr:last-child td:first-child {
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+
+.div.dataTables_scrollBody table {
+    border-top: none;
+    margin-bottom: 0 !important;
+}
+
+.div.dataTables_scrollBody tbody tr:first-child th,
+.div.dataTables_scrollBody tbody tr:first-child td {
+    border-top: none;
+}
+
+.div.dataTables_scrollFoot table {
+    border-top: none;
+}
+
+
+
+
+/*
+ * TableTools styles
+ */
+.table tbody tr.active td,
+.table tbody tr.active th {
+    background-color: #08C;
+    color: white;
+}
+
+.table tbody tr.active:hover td,
+.table tbody tr.active:hover th {
+    background-color: #0075b0 !important;
+}
+
+.table-striped tbody tr.active:nth-child(odd) td,
+.table-striped tbody tr.active:nth-child(odd) th {
+    background-color: #017ebc;
+}
+
+.table.DTTT_selectable tbody tr {
+    cursor: pointer;
+    *cursor: hand;
+}
+
+.div.DTTT .btn {
+    color: #333 !important;
+    font-size: 12px;
+}
+
+    .div.DTTT .btn:hover {
+        text-decoration: none !important;
+    }
+
+
+ul.DTTT_dropdown.dropdown-menu a {
+    color: #333 !important; /* needed only when demo_page.css is included */
+}
+
+ul.DTTT_dropdown.dropdown-menu li:hover a {
+    background-color: #0088cc;
+    color: white !important;
+}
+
+/* TableTools information display */
+.div.DTTT_print_info.modal {
+    height: 150px;
+    margin-top: -75px;
+    text-align: center;
+}
+
+.div.DTTT_print_info h6 {
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 28px;
+    margin: 1em;
+}
+
+.div.DTTT_print_info p {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+
+
+/*
+ * FixedColumns styles
+ */
+.div.DTFC_LeftHeadWrapper table,
+.div.DTFC_LeftFootWrapper table,
+table.DTFC_Cloned tr.even {
+    background-color: white;
+}
+
+div.DTFC_LeftHeadWrapper table {
+    margin-bottom: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+    .div.DTFC_LeftHeadWrapper table thead tr:last-child th:first-child,
+    .div.DTFC_LeftHeadWrapper table thead tr:last-child td:first-child {
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+
+.div.DTFC_LeftBodyWrapper table {
+    border-top: none;
+    margin-bottom: 0 !important;
+}
+
+.div.DTFC_LeftBodyWrapper tbody tr:first-child th,
+.div.DTFC_LeftBodyWrapper tbody tr:first-child td {
+    border-top: none;
+}
+
+.div.DTFC_LeftFootWrapper table {
+    border-top: none;
+}
+
+
+.tabslinks {
+    display: block;
+    float: left;
+    padding: 10px 15px;
+    background: #aaa;
+    border: 1px solid #777;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    margin-right: 1px;
+    color: #fff;
+    text-decoration: none
+}
+
+
+#blazor-error-ui .dismiss {
+  cursor: pointer;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.5rem;
+}
+
+.all-iputs {
+    border: none;
+    color: #C4C4C4;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: left;
+    height: 32px;
+    padding: 0px;
+}
+
+.iconAccion {
+    cursor: pointer;
+}
+.heading-index {
+    background: none;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-top: 3.125rem;
+}
+.heading-index h1 {
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 42px;
+    letter-spacing: 0px;
+    color: #3366CA;
+ }
+.radzed-panel {
+    padding: 0 0;
+}
+.contrasena {
+    position: relative;
+}
+
+    .contrasena input {
+        width: 100%;
+        padding: 7px;
+    }
+    .contrasena span {
+        position: absolute;
+        right: 10px;
+        top: 34px;
+        cursor: pointer;
+        padding: 1px 1px;
+    }
+    .contrasena .labelcontrol span {
+        position: relative;
+        right: 0px;
+        top: 0px;
+        cursor: none;
+        padding: 0px 0px;
+    }
+
+.subtitulolabel {
+    color: gray
+}
+
+.titulopagina {
+    color: darkblue
+}
+
+.labelcontrol {
+    font-weight: bold;
+    font-size: 12px
+}
+.labelcontrol span {
+    color: red
+}
+
+.labelcontrol .subtitulolabel {
+     color: gray
+}
+
+.complement-form-seach {
+    border: 1px solid #B9B9B9 !important;
+    box-sizing: border-box !important;
+    border-radius: 5px !important;
+    box-shadow: none !important;
+}
+input::placeholder {
+    color: #c4c4c4;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+}
+.rz-multiselect .rz-placeholder, .rz-dropdown .rz-placeholder {
+    color: #c4c4c4;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+}
+::placeholder {
+    color: #c4c4c4;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.form-radzen-search {
+    padding: 1rem 1rem 0 1rem;
+}
+.rz-fieldset-content {
+    padding: 1rem!important;
+}
+.grid-contain-form {
+    max-height: 20rem;
+}
+.textolinkrojo {
+    text-decoration: underline;
+    color: red;
+    font-size: 14px;
+    cursor: pointer;
+}
+.label-search {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    color: #5E5E5E;
+}
+.complement-input-modal {
+    border: 1px solid #B9B9B9;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 290px;
+    height: 48px;
+}
+.divmostrartodascolumnas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 20px;
+}
+.button-primary-color {
+    background: #3366CA!important;
+    border-color: #3366CA!important;
+}
+
+.button-primary-outline {
+    color: #3366CA!important;
+    border-color: #3366CA!important;
+}
+
+.button-complement {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: 0.875px;
+    width: 6.25rem;
+    height: 2.5rem;
+}
+
+.button-complement-l {
+    Width: 8rem;
+    height: 3rem;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+}
+
+.button-complement-xl {
+    Width: 11.438rem;
+    height: 3rem;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+}
+.button-complement-xxl {
+    Width: 13.5rem;
+    height: 3rem;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+}
+.button-complement-auto {
+    Width: auto;
+    height: 3rem;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+}
+.complement-link-outline {
+    padding-top: 0.8rem;
+    border-color: #3366CA;
+    color: #3366CA!important;
+}
+.complement-button-outline {
+    border-color: #3366CA;
+    color: #3366CA;
+}
+.title-page {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    color: #1E63B1;
+}
+.btn-plus-search {
+    color: #11D719;
+    background-color: transparent;
+    border: none;
+}
+
+.btn-lent-search {
+    color: #3366CA!important;
+    background-color: transparent;
+    border: none;
+}
+
+.btn-pencil-search {
+    color: #FFD600;
+    background-color: transparent;
+}
+
+.btn-export-search {
+    border: 1px solid transparent;
+    color: #FF0062;
+    background-color: transparent;
+}
+.btn-tracer-search {
+    border: 1px solid transparent;
+    color: #a4c639;
+    background-color: transparent ;
+}
+
+
+.btn-cancel-search {
+    color: #FF0000;
+    background-color: transparent;
+}
+/*inicio  estilos bara estados central*/
+.step-active {
+    height: 3.125rem;
+    width: 3.125rem;
+    background-color: #FF0062;
+    border-radius: 50%;
+    display: inline-block;
+}
+.step-not-active {
+    height: 3.125rem;
+    width: 3.125rem;
+    background-color: #C4C4C4;
+    border-radius: 50%;
+    display: inline-block;
+}
+.container-line-bar {
+    position: relative;
+    top: 2.8rem;
+    width: 100%;
+    z-index: 1;
+}
+.content-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    z-index: 2;
+}
+.colum-bar {
+    display:flex;
+    flex-direction: column;
+}
+.over-circle {
+    z-index: 3;
+}
+/*fin estilos bara estados central*/
+.title-page-form {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    color: #1E63B1;
+}
+.subtitle-filter-form {
+    padding-top: 1.8rem;
+    padding-bottom: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #555555;
+}
+.complement-filter-form {
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-top: 8rem;
+}
+.center-title-graphic {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #5E5E5E;
+}
+.graphic-options {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #5E5E5E;
+}
+.btn-link-color {
+    color: #3366CA!important;
+}
+.ul-nav-menu {
+    height:90vh;
+    padding:0; 
+    margin:0;
+    border-radius:0px
+
+}
+.rz-panel-titlebar {
+    margin: 0 0 0 1rem;
+    width: auto;
+    color: #88989b;
+    font-size: 0.875rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+
+}
+.btn-export-color {
+    color: #FF0062;
+    background-color: transparent;
+    border: none;
+}
+.btn-monitor-color {
+    color: #FF0062;
+    background-color: transparent;
+    border: none;
+}
+.label-form {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    color: #5E5E5E;
+}
+.label-value-form {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: #3366CA;
+}
+.rz-column-title{
+    text-transform: initial !important;
+}
+
+.rz-tick-text{
+    font-size:10px !important
+}
+.rz-dialog-wrapper{
+    left:0;
+}
+div[displayname~=Fecha], .rz-spinner {
+    width: 100%;
+}
+.rz-datatable-thead th, .rz-grid-table thead th {
+    background-color: #E8EDFC;
+}
+.rz-fieldset-toggler {
+    background-color: #CAD9FC;
+}
+.label-form-double {
+    padding: 0;
+    margin: 0;
+    height: 18px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    color: #5E5E5E;
+}
+nav[aria-label="breadcrumb"] {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.header-content-form {
+    position: fixed;
+    width: 100%;
+    height: 8rem;
+    text-align: center !important;
+    background: #ffff;
+    z-index: 1;
+    top: 7rem;
+}
+.title-form {
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 40px;
+    color: #1E63B1;
+    padding-top: 2.5rem;
+}
+
+.title-card {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+    color: #555555;
+}
+
+.rz-dialog-content {
+    padding: 0 4.68rem;
+}
+.rz-dialog-titlebar {
+    padding: 2rem 2rem 0;
+    background-color: #ffff;
+}
+.valor-item-detalle {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: #3366CA;
+}
+.label-modal-item {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #5E5E5E;
+}
+.label-modal-form {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    color: #5E5E5E;
+}
+.rz-paginator-last, .rz-paginator-next {
+    background-color: #3366CA;
+}
+.rz-paginator-page.rz-state-active {
+    color: #000000;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+}
+.input[type="file" i] {
+    color: #ffff;
+}

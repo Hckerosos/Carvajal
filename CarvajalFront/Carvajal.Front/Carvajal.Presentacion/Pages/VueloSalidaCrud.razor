@@ -1,0 +1,176 @@
+﻿@page "/Detalle/VueloSalidaCrud/{id:int}/{action}"
+@using Newtonsoft.Json;
+@using System.Text;
+@inject NavigationManager NavManager;
+@inject IJSRuntime JsRuntime
+@inject HttpClient _http
+@inject DialogService dialogService
+
+<RadzenDialog />
+<RadzenNotification />
+
+@if (vueloSalidaModel == null)
+{
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">-cargando...</span>
+        </div>
+    </div>
+}
+else
+{
+    <div class="content px-4">
+        <div class="row text-center">
+            <div class="col-sm">
+                <h2 style="color:blue" class="title-page-form">Acción @Action <span title="Ver detalle" class="oi oi-location" aria-hidden="true"></span></h2>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <p style="color:red">@messageError</p>
+        <p style="color:green">@sucess</p>
+
+    </div>
+    <RadzenFieldset AllowCollapse="true" class="form-radzen-search">
+        <HeaderTemplate>
+            <strong class="tittle-card">Detalle salida de vuelo</strong>
+        </HeaderTemplate>
+        <ChildContent>
+            <div class="container">
+                <div class="row">
+                    <div class="card">
+                        <EditForm Model="@vueloSalidaModel">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Origen <span title="Origen" class="oi oi-location" aria-hidden="true" /></label>
+                                        <InputText @bind-Value="@vueloSalidaModel.Origen" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Destino <span title="Destino" class="oi oi-location" aria-hidden="true" /></label>
+                                        <InputText @bind-Value="@vueloSalidaModel.Destino" class="form-control" />
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Fecha <span title="Fecha" class="oi oi-timer" aria-hidden="true" /></label>
+                                        <InputDate @bind-Value="@vueloSalidaModel.Fecha" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Hora de salida <span title="Salida" class="oi oi-timer" aria-hidden="true" /></label>
+                                        <InputText @bind-Value="@vueloSalidaModel.Salida" class="form-control" />
+                                        <span title="Ver detalle" class="oi oi-timer" aria-hidden="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Estado <span title="Salida" class="oi oi-rain" aria-hidden="true" /></label>
+                                        @if (vueloSalidaModel.IdEstado == 1)
+                                        {
+                                            <p style="color:green">Activo <span title="Activo" class="oi oi-thumb-up" aria-hidden="true" /></p>
+                                        }
+                                        else
+                                        {
+                                            <p style="color:red">Cancelado <span title="Cancelado" class="oi oi-thumb-down" aria-hidden="true" /></p>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                            <DataAnnotationsValidator />
+                            <ValidationSummary />
+                        </EditForm>
+                    </div>
+                </div>
+            </div>
+        </ChildContent>
+    </RadzenFieldset>
+    <br />
+    <div class="form-group">
+        <div class="row">
+            <center>
+                <button type="submit" class="btn btn-primary button-complement-xl" @onclick="@(() => EventoTabla())">
+                    <span class="oi oi-arrow-right" aria-hidden="true"></span> GUARDAR
+                </button>
+            </center>
+            <center>
+                <button type="submit" class="btn btn-outline-primary button-complement-xl" @onclick="(()=> dialogService.Close(false))">
+                    <span class="oi oi-arrow-left" aria-hidden="true"></span> REGRESAR
+                </button>
+            </center>
+
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    [Parameter]
+    public string Action { get; set; }
+
+    string messageError = String.Empty;
+
+    string sucess = String.Empty;
+
+
+    VueloSalidaModel vueloSalidaModel = null;
+
+    RadzenDataGrid<VueloSalidaModel> grid = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var url = $"https://localhost:44380/VueloSalida/ObtenerPorId/" + $"{Id}";
+        if (vueloSalidaModel == null)
+            vueloSalidaModel = await _http.GetFromJsonAsync<VueloSalidaModel>(url);
+
+    }
+
+    public async Task EventoTabla()
+    {
+        var json = JsonConvert.SerializeObject(vueloSalidaModel);
+        var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+
+        switch (Action.ToLower())
+        {
+            case "post":
+                var httpResponsePost = await _http.PostAsync($"https://localhost:44380/VueloSalida/", stringContent);
+                if (httpResponsePost.IsSuccessStatusCode)
+                {
+                    var url = $"https://localhost:44380/VueloSalida/ObtenerPorId/" + $"{Id}";
+                    vueloSalidaModel = await _http.GetFromJsonAsync<VueloSalidaModel>(url);
+                    sucess = "Datos insertados correctamente";
+                    dialogService.Close(false);
+                }
+                else
+                    messageError = "Los Datos no se pudieron guardar";
+                break;
+            case "put":
+                var httpResponsePust = await _http.PutAsync($"https://localhost:44380/VueloSalida/", stringContent);
+                if (httpResponsePust.IsSuccessStatusCode)
+                {
+                    var url = $"https://localhost:44380/VueloSalida/ObtenerPorId/" + $"{Id}";
+                    vueloSalidaModel = await _http.GetFromJsonAsync<VueloSalidaModel>(url);
+                    sucess = "Datos insertados correctamente";
+                    dialogService.Close(false);
+                }
+                else
+                    messageError = "Los Datos no se pudieron guardar";
+                break;
+        }
+
+    }
+
+}
+
+
+
+
+
+

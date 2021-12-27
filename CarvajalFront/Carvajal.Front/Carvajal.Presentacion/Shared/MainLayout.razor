@@ -1,0 +1,23 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <div class="main">
+        <div class="d-flex flex-row">
+            <a class="nav-link p-2" href="" style="color:blue">
+                <span class="oi oi-location" aria-hidden="true"></span> Vuelos salientes
+            </a>
+            <a class="nav-link p-2" href="/Gestion-de-vuelos" style="color:blue">
+                <span class="oi oi-location" aria-hidden="true"></span> Administración
+            </a>
+
+        </div>
+
+        <div class="content px-4">
+            @Body
+        </div>
+    </div>
+</div>

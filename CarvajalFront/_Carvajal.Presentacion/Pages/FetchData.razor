@@ -1,0 +1,47 @@
+﻿@page "/fetchdata"
+@inject HttpClient Http
+@using Carvajal.Presentacion.Data.VueloSalidaModel
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (listVueloSalidaModel == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var VueloSalidaModel in listVueloSalidaModel)
+            {
+            <tr>
+                <td>@VueloSalidaModel.Origen</td>
+                <td>@VueloSalidaModel.Destino</td>
+                <td>@VueloSalidaModel.Fecha</td>
+                <td>@VueloSalidaModel.Salida</td>
+                <td>@VueloSalidaModel.IdEstado</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    List<VueloSalidaModel> listVueloSalidaModel = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(listVueloSalidaModel!= null)
+            listVueloSalidaModel = await Http.GetFromJsonAsync<List<VueloSalidaModel>>("https://localhost:44380/VueloSalida");
+    }
+}

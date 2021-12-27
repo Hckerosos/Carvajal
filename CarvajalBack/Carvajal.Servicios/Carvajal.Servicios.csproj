@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Carvajal.Datos\Carvajal.Datos.csproj" />
+	  <ProjectReference Include="..\Carvajal.Entidades\Carvajal.Diseños.csproj" />
+	  <ProjectReference Include="..\Carvajal.Interface\Carvajal.Interface.csproj" />
+	</ItemGroup>
+</Project>
