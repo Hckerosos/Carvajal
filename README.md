@@ -1,6 +1,8 @@
-# Carvajal SALIDA DE VUELOS
+# SALIDA DE VUELOS
 
-Proyecto sobre Blazor web assembly, arquitectura en capas , arquitectura SCS (service contain service), principios SOLID}
+Proyecto construido sobre la tecnología Blazor **web assembly (página progresiva)**, **arquitectura en capas** , **arquitectura orientada a servicios** , principios **SOLID**, implementaci+on de **interfaces**.
+
+Proyecto web el cuál consiste en connsultar todos los vuelos que están próximos a salir y tambien consta con una sección de administración en la cual se puede hacer un **CRUD** de los vuelos.
 
 ##Contenido del proyecto
 
@@ -20,7 +22,7 @@ Proyecto sobre Blazor web assembly, arquitectura en capas , arquitectura SCS (se
 ![Captura5](https://user-images.githubusercontent.com/33797747/147511609-bd72af71-f815-4c49-be87-562fbc8e98a9.PNG)
 
 ##Carpetas:
-**BackupSqlServer** la cual contiene el backup de base de satos sql server.
+**BackupSqlServer:** contiene el backup de base de satos sql server.
 
 Número de contacto: 3223051627
 Correo personal: pveconexco@gmail.com
